@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.innerHTML = ["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
+   heart.innerHTML=["❤️","💖","💕","💗","🌸","✨"][Math.floor(Math.random()*6)];[Math.floor(Math.random()*4)];
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (Math.random()*3 + 4) + "s";
     heart.style.fontSize = (Math.random()*20 + 18) + "px";
