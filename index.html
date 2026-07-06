@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Sayang ❤️</title>
 
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ffe6f2;
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+button{
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    margin:10px;
+}
+
+#yes{
+    background:#4CAF50;
+    color:white;
+}
+
+#no{
+    background:#ff4d4d;
+    color:white;
+    position:absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>🥺❤️</h1>
+<h2>Sayang...</h2>
+<p>Mau main sama aku hari ini?</p>
+
+<button id="yes">Iya ❤️</button>
+<button id="no">Tidak 😢</button>
+</div>
+
+<script>
+const no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+    no.style.left=Math.random()*80+"vw";
+    no.style.top=Math.random()*80+"vh";
+});
+
+document.getElementById("yes").onclick=()=>{
+    alert("Yeayyy ❤️ Makasih sayang, aku tunggu ya 🥰");
+}
+</script>
+
+</body>
+</html>
