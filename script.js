@@ -62,10 +62,13 @@ yesBtn.innerHTML="IYA ❤️❤️";
 // Klik Iya
 yesBtn.onclick=function(){
 
+confettiBoom();
+
 document.getElementById("home").classList.add("hidden");
 
 document.getElementById("calendarPage").classList.remove("hidden");
 
+}
 }
 
 // Set bulan Agustus otomatis
