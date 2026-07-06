@@ -3,73 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Sayang ❤️</title>
+<title>Untuk Endah ❤️</title>
 
-<style>
-body{
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#ffe6f2;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
-}
+<link rel="stylesheet" href="style.css">
 
-.card{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,.2);
-}
-
-button{
-    padding:15px 35px;
-    font-size:20px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    margin:10px;
-}
-
-#yes{
-    background:#4CAF50;
-    color:white;
-}
-
-#no{
-    background:#ff4d4d;
-    color:white;
-    position:absolute;
-}
-</style>
 </head>
 
 <body>
 
-<div class="card">
-<h1>🥺❤️</h1>
-<h2>Sayang...</h2>
-<p>Mau main sama aku hari ini?</p>
-
-<button id="yes">Iya ❤️</button>
-<button id="no">Tidak 😢</button>
+<!-- Loading -->
+<div id="loading">
+    <div class="loader">
+        <h1>❤️</h1>
+        <h2>Menyiapkan sesuatu...</h2>
+        <p>Untuk seseorang yang paling spesial ❤️</p>
+    </div>
 </div>
 
-<script>
-const no=document.getElementById("no");
+<!-- Love Background -->
+<div id="hearts"></div>
 
-no.addEventListener("mouseover",()=>{
-    no.style.left=Math.random()*80+"vw";
-    no.style.top=Math.random()*80+"vh";
-});
+<!-- Halaman Awal -->
+<section id="home">
 
-document.getElementById("yes").onclick=()=>{
-    alert("Yeayyy ❤️ Makasih sayang, aku tunggu ya 🥰");
-}
-</script>
+<div class="card">
+
+<h1>💖</h1>
+
+<h2>Hai Endah Septiani Nur Widya Yusuf</h2>
+
+<p>
+
+Aku tahu kita sama-sama sibuk.
+
+</p>
+
+<p>
+
+Tapi...
+
+</p>
+
+<p>
+
+Aku pengen banget ngabisin waktu sama kamu.
+
+</p>
+
+<p>
+
+Makanya...
+
+</p>
+
+<h2>
+
+Mau main sama aku bulan depan?
+
+🥺❤️
+
+</h2>
+
+<div class="buttons">
+
+<button id="yesBtn">
+
+Iya ❤️
+
+</button>
+
+<button id="noBtn">
+
+Tidak 😢
+
+</button>
+
+</div>
+
+<p id="pesan"></p>
+
+</div>
+
+</section>
+
+<!-- Kalender -->
+
+<section id="calendarPage" class="hidden">
+
+<div class="card">
+
+<h2>
+
+Yeayyy ❤️
+
+</h2>
+
+<p>
+
+Makasih ya sayang.
+
+Sekarang pilih tanggal yang paling cocok buat kamu di bulan Agustus.
+
+</p>
+
+<input type="date" id="datePicker">
+
+<br><br>
+
+<label>
+
+Berapa hari?
+
+</label>
+
+<br>
+
+<select id="days">
+
+<option>1 Hari</option>
+
+<option>2 Hari</option>
+
+<option>3 Hari</option>
+
+<option>4 Hari</option>
+
+<option>5 Hari</option>
+
+</select>
+
+<br><br>
+
+<button id="nextBtn">
+
+Lanjut ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Halaman Foto -->
+
+<section id="lovePage" class="hidden">
+
+<div class="card">
+
+<img src="foto.jpg" id="photo">
+
+<h2>
+
+Aku gak sabar ketemu kamu ❤️
+
+</h2>
+
+<h3 id="selectedDate"></h3>
+
+<h3 id="selectedDays"></h3>
+
+<div id="countdown"></div>
+
+<div class="loveText">
+
+<p>
+
+Terima kasih ya sayang...
+
+</p>
+
+<p>
+
+Aku bersyukur banget bisa kenal sama kamu.
+
+</p>
+
+<p>
+
+Semoga nanti kita bisa bikin kenangan indah lagi.
+
+</p>
+
+<p>
+
+Aku sayang kamu ❤️
+
+</p>
+
+</div>
+
+<button id="waBtn">
+
+Kirim ke WhatsApp ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
