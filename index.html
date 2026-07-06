@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ajak Main ❤️</title>
+<title>Buat Beb</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 
 <!-- Loading -->
@@ -21,45 +23,49 @@
 
 ❤️
 
-<h2>Sedang menyiapkan sesuatu...</h2>
+<h2>Sebentar ya...</h2>
 
-<p>Mohon jangan ditutup ya 😌</p>
-
-</div>
+<p>lagi nyiapin sesuatu.</p>
 
 </div>
 
-<!-- Love Background -->
+</div>
+
+<!-- Background -->
 
 <div id="hearts"></div>
 
-<!-- Halaman Pembuka -->
+<!-- Progress -->
 
-<section id="welcome">
+<div id="progress">
 
-<div class="box">
+<div id="bar"></div>
 
-<h3>Halo Endah 👋</h3>
+</div>
 
-<h1>Ada sesuatu nih...</h1>
+<!-- LEVEL 1 -->
+
+<section id="page1">
+
+<div class="card">
+
+<h3>Halo Beb 👋</h3>
+
+<h1>Ada bentar nih.</h1>
 
 <p>
 
-Tenang...
+Tenang.
 
-Ini bukan pinjaman online.
+Bukan pinjaman online.
+
+Bukan juga link aneh-aneh.
 
 😂
 
 </p>
 
-<p>
-
-Aku cuma mau ngajak kamu jalan.
-
-</p>
-
-<button id="start">
+<button id="mulai">
 
 Lanjut →
 
@@ -69,37 +75,37 @@ Lanjut →
 
 </section>
 
-<!-- Pertanyaan -->
+<!-- LEVEL 2 -->
 
-<section id="question" class="hide">
+<section id="page2" class="hide">
 
-<div class="box">
+<div class="card">
 
-<h1>😌</h1>
+<h2>
 
-<h2>Bulan depan...</h2>
+Bulan depan...
 
-<h2>Mau jalan sama aku?</h2>
+</h2>
 
 <p>
 
-Aku udah siapin semuanya.
+Kalau ada waktu,
 
-Tinggal kamu pilih tanggal yang nyaman.
+mau jalan sama aku?
 
 </p>
 
-<div class="buttons">
+<div class="buttonArea">
 
 <button id="yes">
 
-Mau 😊
+Mau 😌
 
 </button>
 
 <button id="no">
 
-Gak Mau
+Belum 😅
 
 </button>
 
@@ -111,45 +117,27 @@ Gak Mau
 
 </section>
 
-<!-- Kalender -->
+<!-- LEVEL 3 -->
 
-<section id="calendar" class="hide">
+<section id="page3" class="hide">
 
-<div class="box">
+<div class="card">
 
-<h2>Yeay! 🎉</h2>
+<h2>Pilih tanggal.</h2>
 
 <p>
 
-Pilih tanggal yang paling nyaman buat kamu.
+Pilih yang paling enak buat kamu.
 
-Aku yang ngikut.
+Aku tinggal nyesuain.
 
 </p>
 
 <input type="date" id="tanggal">
 
-<br><br>
-
-<select id="hari">
-
-<option>1 Hari</option>
-
-<option>2 Hari</option>
-
-<option>3 Hari</option>
-
-<option>4 Hari</option>
-
-<option>5 Hari</option>
-
-</select>
-
-<br><br>
-
 <button id="next">
 
-Lanjut ❤️
+Lanjut →
 
 </button>
 
@@ -157,25 +145,175 @@ Lanjut ❤️
 
 </section>
 
-<!-- Hasil -->
+<!-- Fake Loading -->
 
-<section id="finish" class="hide">
+<section id="page4" class="hide">
 
-<div class="box">
+<div class="card">
 
-<img src="foto.jpg" class="foto">
+<h2>Mengecek jadwal...</h2>
 
-<h2>See You ❤️</h2>
+<div class="fakeBar">
 
-<p id="hasilTanggal"></p>
+<div id="fakeProgress"></div>
 
-<p id="hasilHari"></p>
+</div>
+
+<p id="loadingText">
+
+Mencocokkan kalender...
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Achievement -->
+
+<section id="page5" class="hide">
+
+<div class="card">
+
+<h1>
+
+🏆
+
+</h1>
+
+<h2>
+
+Achievement Unlocked
+
+</h2>
+
+<p>
+
+"Beb akhirnya milih tanggal."
+
+</p>
+
+<button id="lanjutWheel">
+
+Lanjut →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Wheel -->
+
+<section id="page6" class="hide">
+
+<div class="card">
+
+<h2>
+
+Kalau jadi jalan...
+
+enaknya ngapain?
+
+</h2>
+
+<button id="spin">
+
+🎲 Putar
+
+</button>
+
+<h1 id="hasilSpin">
+
+🤔
+
+</h1>
+
+<button id="rulesBtn">
+
+Lanjut →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Rules -->
+
+<section id="page7" class="hide">
+
+<div class="card">
+
+<h2>
+
+Rules Hari Itu
+
+</h2>
+
+<p>☐ Datang dengan senyum.</p>
+
+<p>☐ Tidak boleh bete.</p>
+
+<p>☐ Gak boleh tantrum.</p>
+
+<p>☑ Wajib menikmati harinya.</p>
+
+<button id="fotoBtn">
+
+Sip 👍
+
+</button>
+
+</div>
+
+</section>
+
+<!-- FOTO -->
+
+<section id="page8" class="hide">
+
+<div class="card">
+
+<div class="polaroid">
+
+<img src="foto.jpg">
+
+<h3>
+
+See you, Beb 📸
+
+</h3>
+
+</div>
+
+<button id="countBtn">
+
+Lanjut →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<section id="page9" class="hide">
+
+<div class="card">
+
+<h2>
+
+Countdown
+
+</h2>
 
 <div id="countdown"></div>
 
 <button id="wa">
 
-Kirim ke WhatsApp 🚀
+Chat Aku 🚀
 
 </button>
 
@@ -183,9 +321,8 @@ Kirim ke WhatsApp 🚀
 
 </section>
 
-<div id="toast"></div>
-
 <script src="script.js"></script>
 
 </body>
+
 </html>
