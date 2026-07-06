@@ -162,3 +162,40 @@ Aku udah gak sabar ketemu kamu 🥹❤️`;
 window.open("https://wa.me/6281802910955?text="+encodeURIComponent(pesan));
 
 }
+function confettiBoom(){
+
+for(let i=0;i<200;i++){
+
+const c=document.createElement("div");
+
+c.innerHTML=["🎉","💖","❤️","✨"][Math.floor(Math.random()*4)];
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-20px";
+
+c.style.fontSize=(20+Math.random()*25)+"px";
+
+c.style.transition="4s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.style.top="110vh";
+
+c.style.transform="rotate(720deg)";
+
+},10);
+
+setTimeout(()=>{
+
+c.remove();
+
+},4500);
+
+}
+
+}
