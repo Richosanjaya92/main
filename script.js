@@ -1,186 +1,165 @@
-// ================= LOADING =================
+// =====================
+// LOADING
+// =====================
 
-window.onload = function () {
-
+window.onload = () => {
     setTimeout(() => {
-
         document.getElementById("loading").style.display = "none";
+    }, 2000);
+};
 
-    },2500);
+// =====================
+// BACKGROUND HEART
+// =====================
 
-}
+function createHeart() {
 
+    const heart = document.createElement("div");
 
+    heart.className = "heart";
 
-// ================= TYPING =================
+    const icons = ["❤️","💖","💕","💙","✨"];
 
-const tulisan="Aku punya sesuatu yang ingin aku sampaikan...";
+    heart.innerHTML = icons[Math.floor(Math.random()*icons.length)];
 
-let i=0;
+    heart.style.left = Math.random()*100+"vw";
 
-function ketik(){
+    heart.style.fontSize = (20+Math.random()*15)+"px";
 
-    if(i<tulisan.length){
+    heart.style.animationDuration = (4+Math.random()*3)+"s";
 
-        document.getElementById("typing").innerHTML+=tulisan.charAt(i);
-
-        i++;
-
-        setTimeout(ketik,70);
-
-    }
-
-}
-
-ketik();
-
-
-
-// ================= BUKA =================
-
-document.getElementById("mulai").onclick=function(){
-
-    document.getElementById("welcome").classList.add("hide");
-
-    document.getElementById("question").classList.remove("hide");
-
-}
-
-
-
-// ================= HATI =================
-
-function hati(){
-
-    let h=document.createElement("div");
-
-    h.className="heart";
-
-    h.innerHTML=["❤️","💖","💕","💗","🌸"][Math.floor(Math.random()*5)];
-
-    h.style.left=Math.random()*100+"vw";
-
-    h.style.fontSize=(20+Math.random()*25)+"px";
-
-    h.style.animationDuration=(4+Math.random()*3)+"s";
-
-    document.body.appendChild(h);
+    document.body.appendChild(heart);
 
     setTimeout(()=>{
-
-        h.remove();
-
+        heart.remove();
     },7000);
 
 }
 
-setInterval(hati,250);
+setInterval(createHeart,250);
 
+// =====================
+// OPEN PAGE
+// =====================
 
+document.getElementById("start").onclick=()=>{
 
-// ================= TOMBOL =================
+document.getElementById("welcome").classList.add("hide");
 
-const no=document.getElementById("no");
+document.getElementById("question").classList.remove("hide");
 
-const yes=document.getElementById("yes");
+};
+// =====================
+// TOMBOL "GAK MAU"
+// =====================
 
-const text=document.getElementById("textNo");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const status = document.getElementById("status");
 
+let klik = 0;
 
-
-let hitung=0;
-
-
-
-const kata=[
-
-"🥺 Yakin?",
-
-"😔 Masa nolak aku...",
-
-"😭 Sekali aja ya...", 
-
-"🥹 Aku udah siapin semuanya...", 
-
-"❤️ Aku bisa kok menyesuaikan jadwal kamu hehe.",
-
-"💕 Udah ya sayang...",
-
-"💖 Pencet IYA aja ❤️"
-
+const dialog = [
+    "🤨 Yakin? Coba pikir lagi deh.",
+    "😏 Kayaknya kamu salah pencet.",
+    "🙃 Aku masih sabar kok.",
+    "😂 Tombol 'Gak Mau' mulai capek dipencet.",
+    "🤝 Aku yang ngikut jadwal kamu kok.",
+    "⚠️ Sistem mendeteksi kamu mulai luluh.",
+    "🚫 Error 404 : Pilihan 'Gak Mau' tidak ditemukan."
 ];
 
+noBtn.onclick = () => {
 
+    if (klik < dialog.length) {
+        status.innerHTML = dialog[klik];
+    }
 
-no.onclick=function(){
+    klik++;
 
-text.innerHTML=kata[hitung];
+    // Tombol Mau makin besar
+    yesBtn.style.transform = `scale(${1 + klik * 0.15})`;
 
-hitung++;
+    // Tombol Gak Mau makin kecil
+    noBtn.style.transform = `scale(${1 - klik * 0.1})`;
 
-yes.style.transform="scale("+(1+hitung*0.15)+")";
+    // Mulai geser posisi setelah klik ke-4
+    if (klik >= 4) {
+        noBtn.style.position = "relative";
+        noBtn.style.left = (Math.random() * 120 - 60) + "px";
+        noBtn.style.top = (Math.random() * 40 - 20) + "px";
+    }
 
-if(hitung>=7){
+    if (klik >= 7) {
 
-no.style.display="none";
+        status.innerHTML = `
+        🏆 <b>Achievement Unlocked</b><br>
+        Orang Paling Susah Diajak Jalan 😂
+        `;
 
-yes.style.transform="scale(1.8)";
+        noBtn.style.display = "none";
 
-yes.innerHTML="IYA ❤️❤️";
+        yesBtn.innerHTML = "Yaudah Mau 😌";
 
-}
+        yesBtn.style.transform = "scale(2)";
 
-}
+        yesBtn.animate([
+            {transform:"scale(2)"},
+            {transform:"scale(2.2)"},
+            {transform:"scale(2)"}
+        ],{
+            duration:700,
+            iterations:Infinity
+        });
 
+    }
 
+};
+// =====================
+// CONFETTI
+// =====================
 
-// ================= CONFETTI =================
+function confettiBoom(){
 
-function confetti(){
+for(let i=0;i<150;i++){
 
-for(let i=0;i<180;i++){
+let e=document.createElement("div");
 
-let c=document.createElement("div");
+e.innerHTML=["🎉","✨","❤️","🥳"][Math.floor(Math.random()*4)];
 
-c.innerHTML=["🎉","❤️","💖","✨"][Math.floor(Math.random()*4)];
+e.style.position="fixed";
 
-c.style.position="fixed";
+e.style.left=Math.random()*100+"vw";
 
-c.style.left=Math.random()*100+"vw";
+e.style.top="-30px";
 
-c.style.top="-30px";
+e.style.fontSize=(20+Math.random()*20)+"px";
 
-c.style.fontSize=(20+Math.random()*20)+"px";
+e.style.transition="4s";
 
-c.style.transition="4s";
-
-document.body.appendChild(c);
+document.body.appendChild(e);
 
 setTimeout(()=>{
 
-c.style.top="110vh";
+e.style.top="110vh";
 
-c.style.transform="rotate(720deg)";
+e.style.transform=`rotate(${Math.random()*720}deg)`;
 
-},20);
+},10);
 
 setTimeout(()=>{
 
-c.remove();
+e.remove();
 
-},4500);
-
-}
+},4200);
 
 }
 
+}
 
+yesBtn.onclick=()=>{
 
-// ================= IYA =================
-
-yes.onclick=function(){
-
-confetti();
+confettiBoom();
 
 setTimeout(()=>{
 
@@ -190,121 +169,126 @@ document.getElementById("calendar").classList.remove("hide");
 
 },1200);
 
+};
+// =====================
+// KALENDER AGUSTUS
+// =====================
+
+const tanggal = document.getElementById("tanggal");
+const tahun = new Date().getFullYear();
+
+// Kalau sekarang sudah lewat Agustus,
+// otomatis pakai Agustus tahun depan
+const targetTahun =
+    (new Date().getMonth() + 1 > 8) ? tahun + 1 : tahun;
+
+tanggal.min = `${targetTahun}-08-01`;
+tanggal.max = `${targetTahun}-08-31`;
+tanggal.value = `${targetTahun}-08-10`;
+
+
+// =====================
+// TOMBOL LANJUT
+// =====================
+
+document.getElementById("next").onclick = () => {
+
+    const pilihTanggal = tanggal.value;
+    const pilihHari = document.getElementById("hari").value;
+
+    document.getElementById("calendar").classList.add("hide");
+    document.getElementById("finish").classList.remove("hide");
+
+    document.getElementById("hasilTanggal").innerHTML =
+        "📅 " + pilihTanggal;
+
+    document.getElementById("hasilHari").innerHTML =
+        "🗓️ " + pilihHari;
+
+    mulaiCountdown(pilihTanggal);
+
+};
+
+
+// =====================
+// COUNTDOWN
+// =====================
+
+function mulaiCountdown(target){
+
+    const tujuan = new Date(target + "T00:00:00");
+
+    const timer = setInterval(()=>{
+
+        const sekarang = new Date();
+
+        const selisih = tujuan - sekarang;
+
+        if(selisih <= 0){
+
+            document.getElementById("countdown").innerHTML =
+            "🎉 Hari ini kita jalan!";
+
+            clearInterval(timer);
+
+            return;
+
+        }
+
+        const hari =
+        Math.floor(selisih/(1000*60*60*24));
+
+        const jam =
+        Math.floor((selisih/(1000*60*60))%24);
+
+        const menit =
+        Math.floor((selisih/(1000*60))%60);
+
+        const detik =
+        Math.floor((selisih/1000)%60);
+
+        document.getElementById("countdown").innerHTML =
+
+        `
+        ⏳<br>
+        <b>${hari}</b> Hari
+        <b>${jam}</b> Jam
+        <b>${menit}</b> Menit
+        <b>${detik}</b> Detik
+        `;
+
+    },1000);
+
 }
 
 
 
-// ================= AGUSTUS =================
+// =====================
+// WHATSAPP
+// =====================
 
-const tanggal=document.getElementById("tanggal");
+document.getElementById("wa").onclick=()=>{
 
-const tahun=new Date().getFullYear();
+const pesan=
 
-tanggal.min=tahun+"-08-01";
+`Hai Endah 👋
 
-tanggal.max=tahun+"-08-31";
-
-tanggal.value=tahun+"-08-10";
-
-
-
-// ================= LANJUT =================
-
-document.getElementById("lanjut").onclick=function(){
-
-document.getElementById("calendar").classList.add("hide");
-
-document.getElementById("result").classList.remove("hide");
-
-
-
-document.getElementById("hasilTanggal").innerHTML="📅 "+tanggal.value;
-
-document.getElementById("hasilHari").innerHTML="🗓️ "+document.getElementById("lama").value;
-
-
-
-countdown();
-
-}
-
-
-
-// ================= COUNTDOWN =================
-
-function countdown(){
-
-const tujuan=new Date(tanggal.value+"T00:00:00");
-
-
-
-let jalan=setInterval(()=>{
-
-
-
-let sekarang=new Date();
-
-
-
-let selisih=tujuan-sekarang;
-
-
-
-if(selisih<=0){
-
-document.getElementById("countdown").innerHTML="❤️ Hari ini kita main ❤️";
-
-clearInterval(jalan);
-
-return;
-
-}
-
-
-
-let hari=Math.floor(selisih/1000/60/60/24);
-
-let jam=Math.floor((selisih/1000/60/60)%24);
-
-let menit=Math.floor((selisih/1000/60)%60);
-
-let detik=Math.floor((selisih/1000)%60);
-
-
-
-document.getElementById("countdown").innerHTML=
-
-`${hari} Hari ${jam} Jam ${menit} Menit ${detik} Detik`;
-
-
-
-},1000);
-
-}
-
-
-
-// ================= WHATSAPP =================
-
-document.getElementById("wa").onclick=function(){
-
-
-
-let pesan=
-
-`Hai Sayang ❤️
-
-Aku pilih
+Aku pilih tanggal:
 
 ${tanggal.value}
 
-Durasi :
+Durasi:
 
-${document.getElementById("lama").value}
+${document.getElementById("hari").value}
 
-Aku udah gak sabar ketemu kamu ❤️`;
+Jangan PHP ya 😌`;
 
+window.open(
 
-window.open("https://wa.me/6281802910955?text="+encodeURIComponent(pesan));
+"https://wa.me/6281802910955?text="+encodeURIComponent(pesan),
 
-}
+"_blank"
+
+);
+
+};
