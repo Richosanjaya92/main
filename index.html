@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Untuk Endah ❤️</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -13,87 +17,71 @@
 
 <!-- Loading -->
 <div id="loading">
-    <div class="loader">
-        <h1>❤️</h1>
+
+    <div class="loading-box">
+
+        ❤️
+
         <h2>Menyiapkan sesuatu...</h2>
-        <p>Untuk seseorang yang paling spesial ❤️</p>
+
+        <p>Tunggu sebentar ya sayang...</p>
+
     </div>
-</div>
-
-<!-- Love Background -->
-<div id="hearts"></div>
-    <div id="intro">
-
-<div class="introCard">
-
-<h1>❤️</h1>
-
-<h2>Untuk seseorang yang paling spesial...</h2>
-
-<h3>Endah Septiani Nur Widya Yusuf</h3>
-
-<p>
-
-Aku punya sesuatu yang ingin aku sampaikan...
-
-</p>
 
 </div>
 
-</div>
+<!-- Background Hati -->
+<div id="heart-container"></div>
 
-<canvas id="confetti"></canvas>
+<!-- Halaman Pembuka -->
 
-<!-- Halaman Awal -->
-<section id="home">
+<section id="welcome">
 
-<div class="card">
+<div class="welcome-box">
 
-<h1>💖</h1>
+<h3>Untuk seseorang yang paling spesial ❤️</h3>
 
-<h2>Hai Endah Septiani Nur Widya Yusuf</h2>
+<h1>Endah Septiani Nur Widya Yusuf</h1>
 
-<p>
+<p id="typing"></p>
 
-Aku tahu kita sama-sama sibuk.
+<button id="mulai">
 
-</p>
-
-<p>
-
-Tapi...
-
-</p>
-
-<p>
-
-Aku pengen banget ngabisin waktu sama kamu.
-
-</p>
-
-<p>
-
-Makanya...
-
-</p>
-
-<h2>
-
-Mau main sama aku bulan depan?
-
-🥺❤️
-
-</h2>
-
-<div class="buttons">
-
-<button id="yesBtn">
-
-Iya ❤️
+Buka ❤️
 
 </button>
 
-<button id="noBtn">
+</div>
+
+</section>
+
+<!-- Halaman Pertanyaan -->
+
+<section id="question" class="hide">
+
+<div class="card">
+
+<h1>🥺❤️</h1>
+
+<h2>Mau main sama aku bulan depan?</h2>
+
+<p>
+
+Aku udah siapin semuanya.
+
+Aku bisa kok menyesuaikan jadwal kamu hehe.
+
+</p>
+
+<div class="btn-area">
+
+<button id="yes">
+
+IYA ❤️
+
+</button>
+
+<button id="no">
 
 Tidak 😢
 
@@ -101,33 +89,31 @@ Tidak 😢
 
 </div>
 
-<p id="pesan"></p>
+<p id="textNo"></p>
 
 </div>
 
 </section>
 
-<!-- Kalender -->
+<!-- Halaman Kalender -->
 
-<section id="calendarPage" class="hidden">
+<section id="calendar" class="hide">
 
 <div class="card">
 
 <h2>
 
-Yeayyy ❤️
+Yeayy ❤️
 
 </h2>
 
 <p>
 
-Makasih ya sayang.
-
-Sekarang pilih tanggal yang paling cocok buat kamu di bulan Agustus.
+Pilih tanggal di bulan Agustus ya sayang.
 
 </p>
 
-<input type="date" id="datePicker">
+<input type="date" id="tanggal">
 
 <br><br>
 
@@ -139,7 +125,7 @@ Berapa hari?
 
 <br>
 
-<select id="days">
+<select id="lama">
 
 <option>1 Hari</option>
 
@@ -155,7 +141,7 @@ Berapa hari?
 
 <br><br>
 
-<button id="nextBtn">
+<button id="lanjut">
 
 Lanjut ❤️
 
@@ -165,13 +151,13 @@ Lanjut ❤️
 
 </section>
 
-<!-- Halaman Foto -->
+<!-- Halaman Terakhir -->
 
-<section id="lovePage" class="hidden">
+<section id="result" class="hide">
 
 <div class="card">
 
-<img src="foto.jpg" id="photo">
+<img src="foto.jpg" class="foto">
 
 <h2>
 
@@ -179,13 +165,13 @@ Aku gak sabar ketemu kamu ❤️
 
 </h2>
 
-<h3 id="selectedDate"></h3>
+<h3 id="hasilTanggal"></h3>
 
-<h3 id="selectedDays"></h3>
+<h3 id="hasilHari"></h3>
 
 <div id="countdown"></div>
 
-<div class="loveText">
+<div class="surat">
 
 <p>
 
@@ -195,13 +181,13 @@ Terima kasih ya sayang...
 
 <p>
 
-Aku bersyukur banget bisa kenal sama kamu.
+Aku bersyukur banget punya kamu.
 
 </p>
 
 <p>
 
-Semoga nanti kita bisa bikin kenangan indah lagi.
+Semoga nanti kita bisa punya banyak cerita indah lagi.
 
 </p>
 
@@ -213,7 +199,7 @@ Aku sayang kamu ❤️
 
 </div>
 
-<button id="waBtn">
+<button id="wa">
 
 Kirim ke WhatsApp ❤️
 
